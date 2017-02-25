@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<a href="http://127.0.0.1:8000/admin/">redirect</a><br>
+	<title>Menu</title>
+	{%for r in f%}
+		<strong style="font-size: 50px">{{r.name}}</strong><br>
+		{%if r.food_set.all%}
+			{%for food in r.food_set.all%}
+				<strong style="font-size: 20px">The {{forloop.counter}} food</strong><br>
+				<strong>name</strong>: {{food.name}}<br>
+				<strong>price</strong>: {{food.price}} NT<br>
+				<strong>taste</strong>: {{food.taste}}<br>
+				<strong>is_spicy?</strong>: {{food.is_spicy}}<br><br><br>
+			{%endfor%}
+		{%else%}
+			<strong>nothing saled!</strong><br>
+		{%endif%}
+	{%endfor%}
+</html>

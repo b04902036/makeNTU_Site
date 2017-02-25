@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>welcome</title>
+</head>
+<body>
+	{%for food in resturant.food_set.all%}
+		<strong style="font-size: 20px">The {{forloop.counter}} food</strong><br>
+		<strong>name</strong>: {{food.name}}<br>
+		<strong>price</strong>: {{food.price}} NT<br>
+		<strong>taste</strong>: {{food.taste}}<br>
+		<strong>is_spicy?</strong>: {{food.is_spicy}}<br><br><br>
+	{%endfor%}
+</body>
+</html>

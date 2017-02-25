@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Menu</title>
+	</head>
+	<body>
+		<h1 style="text-align:center">Notes and Links Menu</h1>
+		<h2 style="text-align:center">there are {{dates | length}} dates</h2>
+		<div style="text-align:center">
+			{%for date in dates%}
+				<p style="text-align:center; font-family:cursive;">date: <a href="/french_menu/french_note/{{date.id}}">{{date.time}}</a>
+					<form action="/french_delete/" method="get"> 
+						<input type="hidden" name="id" value="{{date.id}}">
+						<input type="hidden" name="url" value="{{requestURL}}">
+						<input type="hidden" name="type" value="date">
+						<!--<input type="submit" value="delete this date">-->
+					</form>
+				</p>
+			{%endfor%}
+		</div>
+		<h2 style="text-align:center">there are {{links | length}} links</h2>
+		<div style="text-align:center">
+			{%for link in links%}
+				<p style="font-family: cursive;"><a href="{{link.href}}" style="text-align:center">{{link.title_for_link}}</a>
+					<form action="/french_delete/" method="get"> 
+						<input type="hidden" name="id" value="{{link.id}}">
+						<input type="hidden" name="url" value="{{requestURL}}">
+						<input type="hidden" name="type" value="link">
+						<!--<input type="submit" value="delete this link">-->
+					</form>
+				</p>
+			{%endfor%}
+		</div>
+		<h2 style="text-align:center">Enter date(time) for note and link for Youtube</h2>
+		<form action="" method="post"> {%csrf_token%}
+			<p style="text-align:center">
+				{{form}}<br>
+				<input type="submit" value="submit">
+			</p>
+		</form>
+	</body>
+</html>

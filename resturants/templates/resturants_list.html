@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Welcome!</title>
+</head>
+<body>
+	<h1 style="text-align:center; font-size: 50px; color:blue">Resturants</h1>
+	<form action="/menu/" method="get">
+	<table border="5px solid black">
+		<thead>
+			<tr>
+				<th></th>
+				<th style="text-align: center">name</th>
+				<th style="text-align: center">phonenumber</th>
+				<th style="text-align: center">comment</th>
+			</tr>
+		</thead>
+		<tbody>
+			{%for r in resturants%}
+				<tr>
+					<td>
+						<input type="radio" name="name" value="{{r.name}}">
+					</td>
+					<td>
+						{{r.name}}
+					</td>
+					<td>
+						{{r.phonenumber}}
+					</td>
+					<td>
+						<a href="/comment/{{r.id}}/">comment for {{r.name}}</a>
+					</td>
+				</tr>
+			{%endfor%}
+		</tbody>
+	</table>
+		<input type="submit" value="search menu">
+	</form>
+</body>
+</html>

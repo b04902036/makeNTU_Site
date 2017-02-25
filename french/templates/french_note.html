@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Note</title>
+	</head>
+	<body>
+		<h1 style="text-align:center">Note</h1>
+		<h2 style="text-align:center">there are {{date.frenchnote_set.all | length}} notes</h2>
+		<div style="text-align:center">
+			{%for note in date.frenchnote_set.all%}
+				<p style="text-align:center; font-family:cursive;">title: {{note.title}}</a></p>
+				<p style="text-align:center; font-family:cursive;">{{note.content}}</a></p>
+				<form action="/french_delete/" method="get"> 
+					<input type="hidden" name="id" value="{{note.id}}">
+					<input type="hidden" name="url" value="{{requestURL}}">
+					<input type="hidden" name="type" value="note">
+					<input type="submit" value="delete this note">
+				</form>
+			{%endfor%}
+		</div>
+		<h2 style="text-align:center">Enter data for note</h2>
+		<div style="text-align:center">
+			<form action="{{requestURL}}french_note_submit/" method="get">
+				<label>
+					<input type="radio" name="term" value="text">text
+				</label><br>
+				<label>
+					<input type="radio" name="term" value="list">list
+				</label><br>
+				<input type="hidden" name="url" value="{{requestURL}}">
+				<input type="submit" value="choose">
+			</form>
+		</div>
+	</body>
+</html>
