@@ -15,29 +15,24 @@
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-  </head>
-  <body>
-    <div class="container" style="margin: 10px auto">
-        <div class="header clearfix">
-        <nav>
-          <ul class="nav nav-pills pull-right" style="margin: 10px auto">            
-            <li role="presentation"><a href="/menu/">Register your bick</a></li>
-            <li role="presentation" class="active"><a href="/find_bike/">Find your bike</a></li>
-            <li role="presentation"><a href="/empty_slot/">Find empty slot</a></li>
-            <li role="presentation"><a href="/time/">History</a></li>
-          </ul>
-        </nav>
-        <h3 class="text-muted" style="margin: 10px auto">Bike locationer</h3>
-      </div>
-    <form action="" method="post" class="form-inline">{%csrf_token%}
-  <div class="form-group">
-    <label for="exampleInputName2">Name</label>
-    <input type="text" class="form-control" name="name" id="exampleInputName2" placeholder="Jane Doe" required>
-  </div>
-  <button type="submit" class="btn btn-default">Send invitation</button>
-</form>
+    <!-- Latest compiled and minified JavaScript -->     <script
+src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" inte
+grity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa
+" crossorigin="anonymous"></script>   </head>   <body>     <div
+class="container" style="margin: 10px auto">         <div class="header
+clearfix">         <nav>           <ul class="nav nav-pills pull-right"
+style="margin: 10px auto">                         <li role="presentation"><a
+href="/menu/">Register your bick</a></li>             <li role="presentation"
+class="active"><a href="/find_bike/">Find your bike</a></li>             <li
+role="presentation"><a href="/empty_slot/">Find empty slot</a></li>
+<li role="presentation"><a href="/time/">History</a></li>           </ul>
+</nav>         <h3 class="text-muted" style="margin: 10px auto">Bike
+locationer</h3>       </div>     <form action="" method="post" class="form-
+inline">{%csrf_token%}   <div class="form-group">     <label
+for="exampleInputName2">Name</label>     <input type="text" class="form-
+control" name="name" id="exampleInputName2" placeholder="Jane Doe" required>
+</div>   <button type="submit" class="btn btn-default">Send
+invitation</button> </form>
     
     </div>
     <div style="width: 10%; display: inline-block"></div>
@@ -58,7 +53,7 @@ function initMap() {
             console.log(position, position.coords.latitude, position.coords.longitude);
             ap = new google.maps.Map(document.getElementById('map'), {
                 center: {lat: position.coords.latitude, lng: position.coords.longitude},
-                zoom: 19
+                zoom: 15
             });
         });
     } else {

@@ -46,6 +46,7 @@ urlpatterns = patterns('',
     url(r'^find_bike/$', find_bike),
     url(r'^empty_slot/$', empty_slot),
     url(r'^time/$', time),
+    url(r'^$', menu),
     #url(r'^', include(router.urls)),
     #url(r'^api_auth/', include('rest_framework.urls', namespace='rest_framework')),
 )

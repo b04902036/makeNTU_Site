@@ -3,10 +3,20 @@ from django import template
 from django.http import HttpResponse, HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from models import Bike, User, Slot
-
+from django.utils.timezone import utc
+from datetime import datetime
 import os
 def time(request):
-
+	allBike = Bike.objects.all()
+	y = []
+	for bike in allBike:
+		if bike.status == 1:
+			y.append(bike)
+	now = datetime.now()
+	for bike in y:
+		preDiff = now - bike.time.replace(tzinfo=None)
+		bike.diffTime = preDiff.days
+	sorted(y, key = lambda car : car.diffTime)
 	t = template.loader.get_template('time.html')
 	d = template.RequestContext(request, locals())
 	return HttpResponse(t.render(d))
@@ -64,6 +74,7 @@ def menu(request):
 			theBike = Bike.objects.create(myId = myId, user = user)
 		else:
 			theBike = Bike.objects.get(myId = myId)
+		theBike.time = datetime.datetime.now()
 		theBike.save()
 	d = template.RequestContext(request, locals())
 	return HttpResponse(t.render(d))

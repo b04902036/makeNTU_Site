@@ -55,12 +55,14 @@
               </tr>
           </thead>
           <tbody>
+              {%for bicycle in y%}
               <tr>
-                  <th>1</th>
-                  <td>Mark</td>
-                  <td>123456</td>
-                  <td>1996-02-19</td>
+                  <th>{{forloop.counter}}</th>
+                  <td>{{bicycle.user.name}}</td>
+                  <td>{{bicycle.myId}}</td>
+                  <td>{{bicycle.diffTime}}</td>
               </tr>
+              {%endfor%}
           </tbody>
       </table>
       <footer class="footer" style="margin-top: 10px">

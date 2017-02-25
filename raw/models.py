@@ -1,5 +1,5 @@
 from django.db import models
-
+from datetime import datetime
 class User(models.Model):
 	name = models.CharField(max_length = 100)
 
@@ -9,6 +9,8 @@ class Bike(models.Model):
 	x = models.DecimalField(decimal_places = 6, max_digits = 10, default = 0)
 	y = models.DecimalField(decimal_places = 6, max_digits = 10, default = 0)
 	status = models.BigIntegerField(default = 0)
+	time = models.DateTimeField(default = datetime.now())
+	diffTime = models.BigIntegerField(default = 0)
 
 class Slot(models.Model):
 	x = models.DecimalField(decimal_places = 6, max_digits = 10, default = 0)
