@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 #from resturants.views import menu, resturants_list, comment, comment_delete
 #from views import welcome
 #from french.views import french_menu, french_note, french_delete, french_note_submit
-from raw.views import menu, find_bike, empty_slot
+from raw.views import menu, find_bike, empty_slot, time
 from rest_framework import routers, serializers, viewsets
 #from sp.views import sp_menu, 
 admin.autodiscover()
@@ -45,6 +45,7 @@ urlpatterns = patterns('',
     url(r'^menu/$', menu),
     url(r'^find_bike/$', find_bike),
     url(r'^empty_slot/$', empty_slot),
+    url(r'^time/$', time),
     #url(r'^', include(router.urls)),
     #url(r'^api_auth/', include('rest_framework.urls', namespace='rest_framework')),
 )

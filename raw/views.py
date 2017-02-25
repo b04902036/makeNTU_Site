@@ -5,6 +5,11 @@ from django.core.urlresolvers import reverse
 from models import Bike, User, Slot
 
 import os
+def time(request):
+
+	t = template.loader.get_template('time.html')
+	d = template.RequestContext(request, locals())
+	return HttpResponse(t.render(d))
 def empty_slot(request):
 	x = []
 	places = Slot.objects.all()
@@ -56,6 +61,9 @@ def menu(request):
 			user = User.objects.get(name = myName)
 		num = Bike.objects.filter(myId = myId).count()
 		if num == 0:
-			Bike.objects.create(myId = myId, user = user)
+			theBike = Bike.objects.create(myId = myId, user = user)
+		else:
+			theBike = Bike.objects.get(myId = myId)
+		theBike.save()
 	d = template.RequestContext(request, locals())
 	return HttpResponse(t.render(d))
