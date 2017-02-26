@@ -7,6 +7,19 @@ from django.utils.timezone import utc
 from datetime import datetime
 import os
 def time(request):
+	f = open('/root/file2')
+	for line in f:
+		num = line.split()
+		id = num[0]
+		x = num[1]
+		y = num[2]
+		num = Bike.objects.filter(myId = id).count()
+		if num == 1:
+			bike = Bike.objects.get(myId = id)
+			if x == -1:
+				bike.status = 0
+			else:
+				bike.status = 1
 	allBike = Bike.objects.all()
 	y = []
 	for bike in allBike:
@@ -21,6 +34,19 @@ def time(request):
 	d = template.RequestContext(request, locals())
 	return HttpResponse(t.render(d))
 def empty_slot(request):
+	f = open('/root/file2')
+	for line in f:
+		num = line.split()
+		id = num[0]
+		x = num[1]
+		y = num[2]
+		num = Bike.objects.filter(myId = id).count()
+		if num == 1:
+			bike = Bike.objects.get(myId = id)
+			if x == -1:
+				bike.status = 0
+			else:
+				bike.status = 1
 	x = []
 	places = Slot.objects.all()
 	for place in places:
@@ -31,9 +57,7 @@ def empty_slot(request):
 	return HttpResponse(t.render(d))
 
 def find_bike(request):
-	now_dir = os.path.dirname(__file__)
-	file_path = os.path.join(now_dir, 'id.txt')
-	f = open(file_path)
+	f = open('/root/file2')
 	for line in f:
 		num = line.split()
 		id = num[0]
@@ -43,7 +67,7 @@ def find_bike(request):
 		if num == 0:
 			return HttpResponseRedirect('/menu/')
 		bike = Bike.objects.get(myId = id)
-		if x == 0:
+		if x == -1:
 			bike.status = 0
 		else:
 			bike.status = 1
